@@ -20,3 +20,15 @@ class TestPigLatin(unittest.TestCase):
         # Get the Pig Latin translation
         translation = translator.translate()
         self.assertEqual("nil", translation, phrase)
+
+    # if word ends with y, append nay to the end of the word
+    # if word ends with vowel, append yay to the end of the word
+    # if word ends with consonant, append ay to the end of the word
+    def test_translate_any_equals_anynay(self):
+        # Initialize a translator with a phrase
+        translator = PigLatin("any")
+        # Get the phrase
+        phrase = translator.get_phrase()
+        # Get the Pig Latin translation
+        translation = translator.translate()
+        self.assertEqual("anynay", translation, phrase)
