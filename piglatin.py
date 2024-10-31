@@ -33,6 +33,12 @@ class PigLatin:
             return word + "nay" + punctuation
         elif word[-1] in "aeiou" and not self.phrase[0] in "bcdfghjklmnpqrstwxz":
             return word + "yay" + punctuation
+        elif word.isupper():
+            first_vowel_index = next((i for i, char in enumerate(word) if char in "AEIOU"), None)
+            if first_vowel_index is not None and first_vowel_index > 0:
+                return word[first_vowel_index:] + word[:first_vowel_index] + "AY" + punctuation
+            else:
+                return word + "YAY" + punctuation
         else:
             first_vowel_index = next((i for i, char in enumerate(word) if char in "aeiou"), None)
             if first_vowel_index is not None and first_vowel_index > 0:
