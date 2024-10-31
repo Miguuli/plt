@@ -11,8 +11,10 @@ class PigLatin:
             return "nil"
         if self.phrase.endswith("y"):
             return self.phrase + "nay"
-        elif self.phrase[-1] in "aeiou":
+        elif self.phrase[-1] in "aeiou" and not self.phrase[0] in "bcdfghjklmnpqrstwxz":
             return self.phrase + "yay"
+        elif self.phrase[-1] in "aeiou" and self.phrase[0] in "bcdfghjklmnpqrstwxz":
+            return self.phrase.replace(self.phrase[0], "") + "hay"
         else:
             return self.phrase + "ay"
 
