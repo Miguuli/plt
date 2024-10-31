@@ -106,3 +106,16 @@ class TestPigLatin(unittest.TestCase):
         # Get the Pig Latin translation
         translation = translator.translate()
         self.assertEqual("ellway-eingbay", translation, phrase)
+
+    # if word ends with y, append nay to the end of the word
+    # if word ends with vowel, append yay to the end of the word
+    # if word ends with consonant, append ay to the end of the word
+    # test for translating hello world! to ellohay orldway!
+    def test_translate_hello_world_with_punctuation(self):
+        # Initialize a translator with a phrase
+        translator = PigLatin("hello world!")
+        # Get the phrase
+        phrase = translator.get_phrase()
+        # Get the Pig Latin translation
+        translation = translator.translate()
+        self.assertEqual("ellohay orldway!", translation, phrase)
